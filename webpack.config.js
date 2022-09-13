@@ -1,4 +1,5 @@
 const path = require('path')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   entry: './src/Index.tsx',
@@ -6,6 +7,9 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js'
   },
+  plugins: [new ESLintPlugin({
+    extensions: ["js", "jsx", "ts", "tsx"],
+  })],
   devServer: {
     static: {       
       directory: path.resolve(__dirname, './public')
@@ -19,6 +23,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.(s(a|c)ss)$/,
+        use: ['style-loader','css-loader', 'sass-loader']
       },
     ],
   },

@@ -1,4 +1,12 @@
 import React from 'react';
-export const App: React.FC = () => (
-  <h1>Hello React</h1>
-);
+import './app.scss';
+
+export const App: React.FC = () => {
+  return (
+    <div className='container'>
+      <div className='header'>
+        <h1>Welcome!!</h1>
+      </div>
+    </div>
+  )
+}
