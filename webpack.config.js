@@ -28,6 +28,12 @@ module.exports = {
         test: /\.(s(a|c)ss)$/,
         use: ['style-loader','css-loader', 'sass-loader']
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [        
+        'url-loader?limit=10000',
+        'img-loader']
+      }
     ],
   },
   resolve: {
