@@ -23,7 +23,10 @@ const WelcomePage = ({userName, setUserName} : props) => {
                     Search
                 </button>
             </form>
-            <img src={GithubImg} alt="GitHub img" className="githubImg"/>
+            <div className="imageDiv">
+                <img src={GithubImg} alt="GitHub img" className="githubImg"/>
+            </div>
+            
         </div>
     )
 };
