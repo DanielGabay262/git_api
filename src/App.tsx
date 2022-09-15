@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import './app.scss';
 import  WelcomePage from './components/WelcomePage'
 import AppCSS from './App.module.scss'
 
