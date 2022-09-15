@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import './app.scss';
-//import { Repo } from './components/Repo';
+import React, { useState } from 'react'
+// import './app.scss';
 import  WelcomePage from './components/WelcomePage'
+import AppCSS from './App.module.scss'
 
-export const App: React.FC = () => {
+export const App = () => {
 
-  const [userName, setUserName] = useState<string>("");
+  const [userName, setUserName] = useState<string>("")
   
   return (
-    <div className='App'>
+    <div className={AppCSS.app}>
       <WelcomePage userName={userName} setUserName={setUserName}/>
     </div>
   )
