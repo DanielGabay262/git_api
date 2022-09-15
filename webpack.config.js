@@ -25,13 +25,29 @@ module.exports = {
         },
       },
       {
-        test: /\.(s(a|c)ss)$/,
-        use: ['style-loader','css-loader', 'sass-loader']
+        test: /\.module\.(s(a|c)ss)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            }
+          },
+          {
+            loader: 'sass-loader',
+          }]
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [        
+        'url-loader?limit=10000',
+        'img-loader']
+      }
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.scss'],
   },
   mode: 'development'
 }
