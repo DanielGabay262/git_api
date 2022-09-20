@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 
 const githubAPI = axios.create({
     baseURL: "https://api.github.com/",
@@ -7,48 +7,48 @@ const githubAPI = axios.create({
     }
 })
 
-export const getUser = async (user: string) => {
+export const getUser = async (userName: string) => {
     try {
-        const response = await githubAPI.get(`users/${user}`)
+        const response = await githubAPI.get(`users/${userName}`)
         return response.data
     } catch(err) {
         throw err
     }
 }
 
-export const getRepos = async (user: string) => {
+export const getRepos = async (userName: string) => {
     try {
-        const response = await githubAPI.get(`users/${user}/repos`)
+        const response = await githubAPI.get(`users/${userName}/repos`)
         return response.data
     } catch(err) {
         throw err
     }    
 }
 
-export const getBranches = async (user: string, repo: string) => {
+export const getBranches = async (userName: string, repoName: string) => {
     try {
-        const response = await githubAPI.get(`/repos/${user}/${repo}/branches`)
+        const response = await githubAPI.get(`/repos/${userName}/${repoName}/branches`)
         return response.data
     } catch(err) {
         throw err
     }    
 }
 
-export const getPullRequests = async (user: string, repo: string) => {
+export const getPullRequests = async (userName: string, repoName: string) => {
     try {
-        const response = await githubAPI.get(`/repos/${user}/${repo}/pulls`)
+        const response = await githubAPI.get(`/repos/${repoName}/${repoName}/pulls`)
         return response.data
     } catch(err) {
         throw err
     }    
 }
 
-export const addComment = async (user:string, repo: string, issue: string, comment: string) => {
+export const addComment = async (userName: string, repoName: string, issueNumber: string, comment: string) => {
     try {
-        const response = await githubAPI.post(`repos/${user}/${repo}/issues/${issue}/comments`, {
-            owner: user,
-            repo: repo,
-            issue_number: issue,
+        const response = await githubAPI.post(`repos/${userName}/${repoName}/issues/${issueNumber}/comments`, {
+            owner: userName,
+            repo: repoName,
+            issue_number: issueNumber,
             body: comment
         })
         return response
