@@ -1,9 +1,11 @@
 import axios from "axios"
+import { token } from "../../Token"
+import { Comment } from "./Interfaces"
 
 const githubAPI = axios.create({
     baseURL: "https://api.github.com/",
     headers: {
-        Authorization: `Bearer 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`
+        Authorization: `Bearer ${token}`
     }
 })
 
@@ -43,8 +45,9 @@ export const getPullRequests = async (userName: string, repoName: string) => {
     }    
 }
 
-export const addComment = async (userName: string, repoName: string, issueNumber: string, comment: string) => {
+export const addComment = async (commentStruct: Comment) => {
     try {
+        const {userName, repoName, issueNumber, comment} = commentStruct
         const response = await githubAPI.post(`repos/${userName}/${repoName}/issues/${issueNumber}/comments`, {
             owner: userName,
             repo: repoName,
