@@ -1,0 +1,51 @@
+.displayRepos {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+.heading {
+    font-size: 4vw;
+}
+
+.avatarDiv {
+    width: 3%;
+    margin-bottom: 0.7vw;
+}
+
+.avatar {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.link {
+    font-size: 1vw;
+    margin-bottom: 0.7vw;
+}
+
+.newSearch {
+    background-color: black;
+    color: white;
+    font-size: 1vw;
+    padding: 0.6vw;
+    border-color: white;
+    border-width: 0.1vw;
+    border-radius: 0.3vw;
+    &:hover {
+        background: darken(white, 40%);
+    }
+}
+
+.repHead {
+    align-self: flex-start;
+    font-size: 2vw;
+}
+
+.reposDiv {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
