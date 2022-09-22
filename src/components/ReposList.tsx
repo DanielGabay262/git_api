@@ -1,5 +1,5 @@
 import React from 'react'
-import { User, Repo } from './Interfaces'
+import { User} from './Interfaces'
 import SingleRepo from './SingleRepo'
 import reposListCSS from './ReposList.module.scss'
 
@@ -19,7 +19,7 @@ const ReposList = ({user}: props) => {
             <button className={reposListCSS.newSearch}>New Search</button>
             <h3 className={reposListCSS.repHead}>Choose Repository:</h3>
             <div className={reposListCSS.reposDiv}>
-                {user?.repos.map((repo:Repo) => (
+                {user?.repos.map((repo) => (
                     <SingleRepo repo={repo} key={repo.name}/>
                 ))}
             </div>
