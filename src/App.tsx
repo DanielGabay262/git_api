@@ -20,6 +20,12 @@ export const App = () => {
       if (numOfRepos > 0) {
         setIsUserFound(true)
       }
+      else {
+        alert(`There are no repositories for ${userName}!`)
+      }
+    }
+    else {
+      alert(`The user: ${userName} doesn't exist!`)
     }
   }
   
