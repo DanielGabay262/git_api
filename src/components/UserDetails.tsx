@@ -2,12 +2,12 @@ import React from 'react'
 import userDetailsCSS from './UserDetails.module.scss'
 import { useQueryClient } from 'react-query'
 import { GetRepos} from './ReactQueryWrapper'
-import { FetchUser, Repo } from './Interfaces'
+import { User, Repo } from './Interfaces'
 
 const UserDetails = () => {
 
     const queryClient = useQueryClient()
-    const userData = queryClient.getQueryData("user") as FetchUser
+    const userData = queryClient.getQueryData("user") as User
 
     const {data: reposData, isSuccess} = GetRepos(userData.login)
     

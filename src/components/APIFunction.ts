@@ -1,6 +1,6 @@
 import axios from "axios"
 import { token } from "../../Token"
-import { Comment, FetchUser } from "./Interfaces"
+import { Comment } from "./Interfaces"
 
 const githubAPI = axios.create({
     baseURL: "https://api.github.com/",
@@ -12,7 +12,7 @@ const githubAPI = axios.create({
 export const getUser = async (userName: string) => {
     try {
         const response = await githubAPI.get(`users/${userName}`)
-        return response.data as FetchUser
+        return response.data
     } catch(err) {
         throw err
     }
