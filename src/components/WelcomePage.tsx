@@ -1,31 +1,30 @@
 import React from "react"
 import GithubImg from '../img/github.jpeg'
-import WelcomePageCSS from './WelcomePage.module.scss'
+import welcomePageCSS from './WelcomePage.module.scss'
 
 interface props {
     userName: string
     setUserName: React.Dispatch<React.SetStateAction<string>>
+    handleUser: (e: React.FormEvent<HTMLFormElement>) => void
 }
 
-const WelcomePage = ({userName, setUserName} : props) => {
+const WelcomePage = ({userName, setUserName, handleUser} : props) => {
+
     return (
-        <div className={WelcomePageCSS.welcome}>
-            <h1 className={WelcomePageCSS.heading}>Welcome!</h1>
-            <form className={WelcomePageCSS.inputForm} onSubmit={(e) => {
-            e.preventDefault()
-            setUserName("")
-        }}>
-                <input className={WelcomePageCSS.inputTxt}
+        <div className={welcomePageCSS.welcome}>
+            <h1 className={welcomePageCSS.heading}>Welcome!</h1>
+            <form className={welcomePageCSS.inputForm} onSubmit={handleUser}>
+                <input className={welcomePageCSS.inputTxt}
                     type="input"
                     placeholder="Enter GitHub user name..."
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}/>
-                <button className={WelcomePageCSS.nameBtn} type="submit">
+                <button className={welcomePageCSS.nameBtn} type="submit">
                     Search
                 </button>
             </form>
-            <div className={WelcomePageCSS.imageDiv}>
-                <img src={GithubImg} alt="GitHub img" className={WelcomePageCSS.githubImg}/>
+            <div className={welcomePageCSS.imageDiv}>
+                <img src={GithubImg} alt="GitHub img" className={welcomePageCSS.githubImg}/>
             </div>
             
         </div>

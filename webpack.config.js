@@ -3,6 +3,7 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   entry: './src/Index.tsx',
+  devtool: 'eval-source-map',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js'

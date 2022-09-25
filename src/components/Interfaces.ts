@@ -19,3 +19,10 @@ export interface Comment {
     comment: string
 }
 
+export interface FetchUser {
+    login: string,
+    avatar_url: string,
+    html_url: string,
+    public_repos: string
+}
+
