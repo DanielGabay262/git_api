@@ -5,13 +5,6 @@ export interface Repo {
     pullRequests: string[]
 }
 
-export interface User {
-    name: string
-    avatarURL: string
-    githubHyperLink: string
-    repos: Repo[]
-}
-
 export interface Comment {
     userName: string, 
     repoName: string, 
@@ -19,3 +12,9 @@ export interface Comment {
     comment: string
 }
 
+export interface User {
+    login: string,
+    avatar_url: string,
+    html_url: string,
+    public_repos: string
+}
