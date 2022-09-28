@@ -1,4 +1,4 @@
-.displayRepos {
+.userDetails {
     color: white;
     display: flex;
     flex-direction: column;
@@ -34,32 +34,6 @@
     border-color: white;
     border-width: 0.1vw;
     border-radius: 0.3vw;
-    &:hover {
-        background: darken(white, 40%);
-    }
-}
-
-.repHead {
-    align-self: flex-start;
-    font-size: 2vw;
-}
-
-.reposDiv {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-}
-
-.repoBtn {
-    background-color: black;
-    width: 25%;
-    color: white;
-    font-size: 1.5vw;
-    padding: 1vw;
-    border-color: white;
-    border-width: 0.1vw;
-    border-radius: 0.3vw;
-    margin-bottom: 1.5vw;
     &:hover {
         background: darken(white, 40%);
     }

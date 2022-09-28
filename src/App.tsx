@@ -9,7 +9,7 @@ export const App = () => {
   const [userName, setUserName] = useState<string>("")
   const [isUserFound, setIsUserFound] = useState<boolean>(false)
 
-  const {refetch} = rqFunctions.GetUser(userName)
+  const {refetch} = rqFunctions.useGetUser(userName)
 
   const handleSearchUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -31,7 +31,7 @@ export const App = () => {
   
   return (
     <div className={appCSS.app}>
-      {isUserFound ? <UserMenu/> : <WelcomePage userName={userName} setUserName={setUserName} handleSearchUser={handleSearchUser}/>}
+      {isUserFound ? <UserMenu setIsUserFound={setIsUserFound}/> : <WelcomePage userName={userName} setUserName={setUserName} handleSearchUser={handleSearchUser}/>}
     </div>
   )
 }
