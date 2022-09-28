@@ -5,15 +5,15 @@ import welcomePageCSS from './WelcomePage.module.scss'
 interface props {
     userName: string
     setUserName: React.Dispatch<React.SetStateAction<string>>
-    handleUser: (e: React.FormEvent<HTMLFormElement>) => void
+    handleSearchUser: (e: React.FormEvent<HTMLFormElement>) => void
 }
 
-const WelcomePage = ({userName, setUserName, handleUser} : props) => {
+const WelcomePage = ({userName, setUserName, handleSearchUser} : props) => {
 
     return (
         <div className={welcomePageCSS.welcome}>
             <h1 className={welcomePageCSS.heading}>Welcome!</h1>
-            <form className={welcomePageCSS.inputForm} onSubmit={handleUser}>
+            <form className={welcomePageCSS.inputForm} onSubmit={handleSearchUser}>
                 <input className={welcomePageCSS.inputTxt}
                     type="input"
                     placeholder="Enter GitHub user name..."

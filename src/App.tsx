@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import  WelcomePage from './components/WelcomePage'
 import appCSS from './App.module.scss'
-import UserDetails from './components/UserDetails'
+import UserMenu from './components/UserMenu'
 import * as rqFunctions from './components/ReactQueryWrapper'
 
 export const App = () => {
@@ -11,12 +11,12 @@ export const App = () => {
 
   const {refetch} = rqFunctions.GetUser(userName)
 
-  const handleUser = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearchUser = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setUserName("")
-    const returnData = await refetch()
-    if (returnData.isSuccess === true) {
-      const numOfRepos = Number(returnData.data.public_repos)
+    const {data: userData, isSuccess} = await refetch()
+    if (isSuccess === true) {
+      const numOfRepos = Number(userData.public_repos)
       if (numOfRepos > 0) {
         setIsUserFound(true)
       }
@@ -31,7 +31,7 @@ export const App = () => {
   
   return (
     <div className={appCSS.app}>
-      {isUserFound ? <UserDetails/> : <WelcomePage userName={userName} setUserName={setUserName} handleUser={handleUser}/>}
+      {isUserFound ? <UserMenu/> : <WelcomePage userName={userName} setUserName={setUserName} handleSearchUser={handleSearchUser}/>}
     </div>
   )
 }
