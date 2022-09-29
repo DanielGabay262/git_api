@@ -1,8 +1,6 @@
 export interface Repo {
     name: string
     language: string
-    branches: string[]
-    pullRequests: string[]
 }
 
 export interface Comment {
@@ -16,5 +14,15 @@ export interface User {
     login: string,
     avatar_url: string,
     html_url: string,
-    public_repos: string
+}
+
+export interface Branch {
+    name: string
+}
+
+export interface PullRequest {
+    title: string,
+    html_url: string,
+    number: number,
+    Comments: number
 }

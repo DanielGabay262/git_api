@@ -2,13 +2,13 @@ import * as apiFunctions from "./APIFunction"
 import { useQuery, useMutation } from "react-query"
 import { Comment } from "./Interfaces"
 
-export const GetUser = (userName : string) => useQuery(['user'], () => apiFunctions.getUser(userName), {enabled: false, retry: false})
+export const useGetUser = (userName : string) => useQuery(['user'], () => apiFunctions.getUser(userName), {enabled: false, retry: false})
 
-export const GetRepos = (userName: string) => useQuery(['repos'], () => apiFunctions.getRepos(userName))
+export const useGetRepos = (userName: string) => useQuery(['repos'], () => apiFunctions.getRepos(userName))
 
-export const GetBranches = (userName: string, repoName: string) => useQuery(['branches'], () => apiFunctions.getBranches(userName, repoName))
+export const useGetBranches = (userName: string, repoName: string) => useQuery(['branches', repoName], () => apiFunctions.getBranches(userName, repoName))
 
-export const GetPullRequests = (userName: string, repoName: string) => useQuery(['pullRequests'], () => apiFunctions.getPullRequests(userName, repoName))
+export const useGetPullRequests = (userName: string, repoName: string) => useQuery(['pullRequests', repoName], () => apiFunctions.getPullRequests(userName, repoName))
 
-export const AddComment = () => useMutation((newComment: Comment) => apiFunctions.addComment(newComment))
+export const useAddComment = () => useMutation((newComment: Comment) => apiFunctions.addComment(newComment))
 

@@ -38,7 +38,7 @@ export const getBranches = async (userName: string, repoName: string) => {
 
 export const getPullRequests = async (userName: string, repoName: string) => {
     try {
-        const response = await githubAPI.get(`/repos/${repoName}/${repoName}/pulls`)
+        const response = await githubAPI.get(`/repos/${userName}/${repoName}/issues`)
         return response.data
     } catch(err) {
         throw err
