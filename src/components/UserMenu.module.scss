@@ -43,3 +43,16 @@
     }
     
 }
+
+.newSearch {
+    background-color: black;
+    color: white;
+    font-size: 1vw;
+    padding: 0.6vw;
+    border-color: white;
+    border-width: 0.1vw;
+    border-radius: 0.3vw;
+    &:hover {
+        background: darken(white, 40%);
+    }
+}

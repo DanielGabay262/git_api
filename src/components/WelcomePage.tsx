@@ -1,14 +1,33 @@
 import React from "react"
 import GithubImg from '../img/github.jpeg'
 import welcomePageCSS from './WelcomePage.module.scss'
+import { useState } from 'react'
+import { useGetUser } from "./ReactQueryWrapper"
 
-interface props {
-    userName: string
-    setUserName: React.Dispatch<React.SetStateAction<string>>
-    handleSearchUser: (e: React.FormEvent<HTMLFormElement>) => void
-}
 
-const WelcomePage = ({userName, setUserName, handleSearchUser} : props) => {
+const WelcomePage = ({setIsUserFound} : {setIsUserFound: React.Dispatch<React.SetStateAction<boolean>>}) => {
+
+    const [userName, setUserName] = useState<string>("")
+    const {refetch} = useGetUser(userName)
+
+    const handleSearchUser = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setUserName("")
+        const {data: userData, isSuccess} = await refetch()
+
+        if (isSuccess) {
+          const numOfRepos = Number(userData.public_repos)
+          if (numOfRepos > 0) {
+            setIsUserFound(true)
+          }
+          else {
+            alert(`There are no repositories for ${userName}!`)
+          }
+        }
+        else {
+          alert(`The user: ${userName} doesn't exist!`)
+        }
+      }
 
     return (
         <div className={welcomePageCSS.welcome}>

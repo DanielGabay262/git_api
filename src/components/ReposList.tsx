@@ -6,7 +6,7 @@ interface props {
     handleClickRepo: (repo: string) => void
 }
 
-function ReposList({reposNames, handleClickRepo}: props) {
+const ReposList = ({reposNames, handleClickRepo}: props) => {
   return (
     <div className={reposListCSS.container}>
         <h3 className={reposListCSS.repHead}>Choose Repository:</h3>
