@@ -8,7 +8,7 @@ export const useGetRepos = (userName: string) => useQuery(['repos'], () => apiFu
 
 export const useGetBranches = (userName: string, repoName: string) => useQuery(['branches', repoName], () => apiFunctions.getBranches(userName, repoName))
 
-export const useGetPullRequests = (userName: string, repoName: string) => useQuery(['pullRequests', repoName], () => apiFunctions.getPullRequests(userName, repoName))
+export const useGetPullRequests = (userName: string, repoName: string, isAddCommentClicked: boolean) => useQuery(['pullRequests', repoName, isAddCommentClicked], () => apiFunctions.getPullRequests(userName, repoName))
 
 export const useAddComment = () => useMutation((newComment: Comment) => apiFunctions.addComment(newComment))
 

@@ -1,12 +1,12 @@
 .container {
     color: white;
-    flex:1 1 0;
-    width: 0;
+    width: 30%;
+    overflow:scroll;
 }
 
 .repHead {
     font-size: 2vw;
-    margin-left: 5vw;
+    margin-left: 3vw;
 }
 
 
@@ -18,7 +18,7 @@
 
 .repoBtn {
     background-color: black;
-    width: 50%;
+    width: 75%;
     color: white;
     font-size: 1.5vw;
     padding: 1vw;
@@ -27,6 +27,9 @@
     border-radius: 0.3vw;
     margin-bottom: 1.5vw;
     &:hover {
+        background: darken(white, 40%);
+    }
+    &:focus {
         background: darken(white, 40%);
     }
 }
