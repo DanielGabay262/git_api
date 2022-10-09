@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import popupCSS from './Popup.module.scss'
-import { useState } from 'react'
 import { useAddComment } from './ReactQueryWrapper'
+
 
 interface props {
   userName: string,
@@ -11,6 +11,8 @@ interface props {
 }
 
 const Popup = ({userName, repoName, issueNumber, setIsAddCommentClicked}: props) => {
+
+
 
   const [comment, setComment] = useState("")
   const mutation = useAddComment()
@@ -38,11 +40,8 @@ const Popup = ({userName, repoName, issueNumber, setIsAddCommentClicked}: props)
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Enter Comment..."/>
             <div>
-              <button type="submit">
+              <button type="submit" className={popupCSS.sendBtn}>
                 Send
-              </button>
-              <button>
-                Cancle
               </button>
             </div>
           </form>

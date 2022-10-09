@@ -1,8 +1,7 @@
 .container {
     color: white;
-    // flex:1 1 0;
-    // width: 0;
     width: 30%;
+    overflow:scroll;
 }
 
 .repHead {
@@ -28,6 +27,9 @@
     border-radius: 0.3vw;
     margin-bottom: 1.5vw;
     &:hover {
+        background: darken(white, 40%);
+    }
+    &:focus {
         background: darken(white, 40%);
     }
 }
