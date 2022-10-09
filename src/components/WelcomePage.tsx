@@ -39,7 +39,7 @@ const WelcomePage = ({setIsUserFound} : {setIsUserFound: React.Dispatch<React.Se
                     placeholder="Enter GitHub user name..."
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}/>
-                <button className={welcomePageCSS.nameBtn} type="submit">
+                <button className={welcomePageCSS.searchBtn} type="submit">
                     SEARCH
                 </button>
             </form>

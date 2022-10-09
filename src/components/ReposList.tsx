@@ -9,7 +9,7 @@ interface props {
 const ReposList = ({ reposNames, handleClickRepo }: props) => {
   return (
     <div className={reposListCSS.container}>
-      <h3 className={reposListCSS.repHead}>Choose Repository:</h3>
+      <h3 className={reposListCSS.repHead}>Choose Repository</h3>
       <div className={reposListCSS.reposDiv}>
         {reposNames?.map((repo) => (
           <div key={repo}>

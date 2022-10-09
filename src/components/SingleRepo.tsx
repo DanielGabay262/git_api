@@ -53,7 +53,7 @@ const PrList = ({ pullRequests, handleAddComment }: { pullRequests: PullRequest[
     }
     const pullRequestList = pullRequests.map((pullRequest: PullRequest) =>
         <li key={pullRequest.number}>
-            <a href={`${pullRequest.html_url}`}>{pullRequest.title}</a> 
+            <a className={singleRepoCSS.prLink} href={`${pullRequest.html_url}`}>{pullRequest.title}</a> 
             <button className={singleRepoCSS.addCommentBtn} onClick={() => handleAddComment(pullRequest.number.toString())}>Add comment</button>
             <span className={singleRepoCSS.numOfComments}>{` (${pullRequest.comments} comments)`}</span>
         </li>)
