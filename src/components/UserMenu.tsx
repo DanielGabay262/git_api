@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import userMenuCSS from './UserMenu.module.scss'
 import { useQueryClient } from 'react-query'
 import { useGetRepos } from './ReactQueryWrapper'
@@ -50,8 +49,10 @@ const UserMenu = ({setIsUserFound} : {setIsUserFound: React.Dispatch<React.SetSt
             {isRepoClicked ? 
             <div className={userMenuCSS.clickedContainer}>
                 <ReposList reposNames={reposNames} handleClickRepo={handleClickRepo}/>
-                <SingleRepo userName={userData.login} repoName={chosenRepo}/>
-                <button className={userMenuCSS.backBtn} onClick={handleClickQuit}> x </button>
+                <div className={userMenuCSS.repoDataContainer}>
+                    <SingleRepo userName={userData.login} repoName={chosenRepo}/>
+                    <button className={userMenuCSS.backBtn} onClick={handleClickQuit}> x </button>
+                </div>
             </div> : 
             <div className={userMenuCSS.noClickedContainer}>
                 <ReposList reposNames={reposNames} handleClickRepo={handleClickRepo}/>

@@ -1,7 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import GithubImg from '../img/github.jpeg'
 import welcomePageCSS from './WelcomePage.module.scss'
-import { useState } from 'react'
 import { useGetUser } from "./ReactQueryWrapper"
 
 
@@ -12,20 +11,22 @@ const WelcomePage = ({setIsUserFound} : {setIsUserFound: React.Dispatch<React.Se
 
     const handleSearchUser = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        setUserName("")
-        const {data: userData, isSuccess} = await refetch()
-
-        if (isSuccess) {
-          const numOfRepos = Number(userData.public_repos)
-          if (numOfRepos > 0) {
-            setIsUserFound(true)
+        if (userName) {
+          setUserName("")
+          const {data: userData, isSuccess} = await refetch()
+  
+          if (isSuccess) {
+            const numOfRepos = Number(userData.public_repos)
+            if (numOfRepos > 0) {
+              setIsUserFound(true)
+            }
+            else {
+              alert(`There are no repositories for ${userName}!`)
+            }
           }
           else {
-            alert(`There are no repositories for ${userName}!`)
+            alert(`The user: ${userName} doesn't exist!`)
           }
-        }
-        else {
-          alert(`The user: ${userName} doesn't exist!`)
         }
       }
 
@@ -38,8 +39,8 @@ const WelcomePage = ({setIsUserFound} : {setIsUserFound: React.Dispatch<React.Se
                     placeholder="Enter GitHub user name..."
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}/>
-                <button className={welcomePageCSS.nameBtn} type="submit">
-                    Search
+                <button className={welcomePageCSS.searchBtn} type="submit">
+                    SEARCH
                 </button>
             </form>
             <div className={welcomePageCSS.imageDiv}>
