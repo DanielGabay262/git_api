@@ -12,8 +12,6 @@ interface props {
 
 const Popup = ({userName, repoName, issueNumber, setIsAddCommentClicked}: props) => {
 
-
-
   const [comment, setComment] = useState("")
   const mutation = useAddComment()
 
@@ -29,7 +27,7 @@ const Popup = ({userName, repoName, issueNumber, setIsAddCommentClicked}: props)
     <div className={popupCSS.popupBox}>
         <div className={popupCSS.box}>
           <div className={popupCSS.headline}>
-            {`Add comment to "test":`}
+            Add comment
           </div>
           <form className={popupCSS.inputForm} onSubmit={handleAddComment}>
             <textarea

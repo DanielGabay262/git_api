@@ -32,7 +32,9 @@ const WelcomePage = ({setIsUserFound} : {setIsUserFound: React.Dispatch<React.Se
 
     return (
         <div className={welcomePageCSS.welcome}>
-            <h1 className={welcomePageCSS.heading}>Welcome!</h1>
+            <div className={welcomePageCSS.headingContainer}>
+              <h1 className={welcomePageCSS.heading}>Welcome!</h1>
+            </div>
             <form className={welcomePageCSS.inputForm} onSubmit={handleSearchUser}>
                 <input className={welcomePageCSS.inputTxt}
                     type="input"

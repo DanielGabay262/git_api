@@ -6,8 +6,15 @@
     justify-content: space-between;
 }
 
+.headingContainer {
+    width: 100%;
+    background-color: #f6f8fa;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .heading {
-    color: white;
+    color: #464648;
     font-size: 7vw;
 }
 
@@ -24,7 +31,7 @@
     flex-basis: 78%;
     border-radius: 0.7vw;
     padding: 1vw;
-    border-color: rgba(243, 229, 229, 0.645);
+    border-color: rgba(238, 232, 232, 0.499);
     font-size: 1.5vw;
     background-color: white;
     &:focus {
@@ -37,11 +44,11 @@
     font: 1vw "Orbitron"; 
     color: #fff;
     text-shadow: 0 5px 20px rgba(192, 36, 0, 0.4), 0 2px 2px rgba(192, 36, 0, 0.4);
-    background: rgb(166, 166, 222);
+    background: #94d8f8;
     border: none;
     border-radius: 0.7vw;
     &:hover {
-        background: darken(rgb(153, 153, 228), 10%);
+        background: darken(#94d8f8, 10%);
     }
     &:active {
         transform: scale(0.9);

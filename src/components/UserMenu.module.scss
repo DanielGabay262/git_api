@@ -6,8 +6,11 @@
     align-items: center;
 }
 
-.message {
-    color: white;
+.heading {
+    width: 100%;
+    background-color: #f6f8fa;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 .clickedContainer {
@@ -45,13 +48,13 @@
 }
 
 .newSearch {
-    background-color: rgb(237, 231, 231);
+    background-color: #ddf4ff;
     font-size: 1vw;
     padding: 0.6vw;
     border-width: 0.1vw;
-    border-radius: 0.3vw;
+    border-radius: 20px;
     &:hover {
-        background: darken(white, 40%);
+        background: darken(#ddf4ff, 10%);
     }
 }
 
@@ -59,7 +62,8 @@
     margin: 70px 0 10px 0;
     position: relative;
     border-width: 1px;
-    border-color: white;
+    border-color: rgb(217, 213, 213);
+    border-radius: 20px;
     border-style: outset;
     width: 60%;
     overflow-y:auto;
