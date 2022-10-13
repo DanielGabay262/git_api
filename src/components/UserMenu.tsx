@@ -35,7 +35,7 @@ const UserMenu = ({setIsUserFound} : {setIsUserFound: React.Dispatch<React.SetSt
     if(isLoading) return <h1 className={userMenuCSS.message}>Loading....</h1>
     if (!isSuccess) return (
         <div>
-            <h1 className={userMenuCSS.message}>Error in loading repos</h1>
+            <h1>Error in loading repos</h1>
             <button className={userMenuCSS.backBtn} onClick={handleClickQuit}> x </button>
         </div>
     ) 
@@ -44,8 +44,10 @@ const UserMenu = ({setIsUserFound} : {setIsUserFound: React.Dispatch<React.SetSt
 
     return (
         <div className={userMenuCSS.userMenu}>
-            <UserDetails userDetails={userData}/>
-            <button className={userMenuCSS.newSearch} onClick={handleNewSearch}>New Search</button>
+            <div className={userMenuCSS.heading}> 
+                <UserDetails userDetails={userData}/>
+                <button className={userMenuCSS.newSearch} onClick={handleNewSearch}>New Search</button>
+            </div>
             {isRepoClicked ? 
             <div className={userMenuCSS.clickedContainer}>
                 <ReposList reposNames={reposNames} handleClickRepo={handleClickRepo}/>

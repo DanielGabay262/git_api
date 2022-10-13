@@ -6,7 +6,8 @@ const UserDetails = ({ userDetails }: { userDetails: User }) => {
 
   return (
     <div className={userDetailsCSS.userDetails}>
-      <h1 className={userDetailsCSS.heading}>{`${userDetails.login} GitHub User`}</h1>
+      <h1 className={userDetailsCSS.heading}>GitHub repositories browser</h1>
+      <h2 className={userDetailsCSS.nameHeading}>{`${userDetails.login}`}</h2>
       <div className={userDetailsCSS.avatarDiv}>
         <a href={`${userDetails.html_url}`}><img className={userDetailsCSS.avatar} src={`${userDetails.avatar_url}`} alt="GitHub avatar" /></a>
       </div>

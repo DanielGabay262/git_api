@@ -1,5 +1,4 @@
 .container {
-    color: white;
     width: 30%;
     overflow:scroll;
 }
@@ -17,7 +16,7 @@
 }
 
 .repoBtn {
-    background-color: rgb(237, 231, 231);
+    background-color: #ddf4ff;
     width: 75%;
     color: black;
     font-size: 1.5vw;
@@ -26,9 +25,9 @@
     border-radius: 0.3vw;
     margin-bottom: 1.5vw;
     &:hover {
-        background: darken(white, 40%);
+        background: darken(#ddf4ff, 10%);
     }
     &:focus {
-        background: darken(white, 40%);
+        background: darken(#ddf4ff, 10%);
     }
 }
