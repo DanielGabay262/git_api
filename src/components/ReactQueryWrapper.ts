@@ -34,26 +34,5 @@ export const useAddComment = () => {
 }
 
 
-// export const useAddComment = () => {
-//     const queryClient = useQueryClient()
-//     return useMutation((newComment: Comment) => apiFunctions.addComment(newComment), {
-//         onMutate: async newComment => {  //Optimistic update
-//             await queryClient.cancelQueries(['pullRequests', newComment.repoName])
-//             const previousPullRequests = queryClient.getQueryData(['pullRequests', newComment.repoName]) as PullRequest[]
-//             const copy = structuredClone(previousPullRequests)
-//             copy.forEach((pullRequest) => {
-//                 if (pullRequest.number === Number(newComment.issueNumber)) {
-//                     ++pullRequest.comments
-//                     return pullRequest
-//                 }
-//                 return pullRequest
-//             })
-//             queryClient.setQueryData(['pullRequests', newComment.repoName], copy)
-//             return { previousPullRequests, copy }
-//         }
-//     })
-// }
-
-
 
 
