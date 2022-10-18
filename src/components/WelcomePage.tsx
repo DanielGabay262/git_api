@@ -33,7 +33,7 @@ const WelcomePage = ({setIsUserFound} : {setIsUserFound: React.Dispatch<React.Se
     return (
         <div className={welcomePageCSS.welcome}>
             <div className={welcomePageCSS.headingContainer}>
-              <h1 className={welcomePageCSS.heading}>GitHub repositories browser</h1>
+              <h1 className={welcomePageCSS.heading}>GitHub Repositories Browser</h1>
             </div>
             <form className={welcomePageCSS.inputForm} onSubmit={handleSearchUser}>
                 <input className={welcomePageCSS.inputTxt}

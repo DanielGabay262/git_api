@@ -38,11 +38,20 @@ export const getBranches = async (userName: string, repoName: string) => {
 
 export const getPullRequests = async (userName: string, repoName: string) => {
     try {
-        const response = await githubAPI.get(`/repos/${userName}/${repoName}/issues`)
+        const response = await githubAPI.get(`/repos/${userName}/${repoName}/pulls`)
         return response.data
     } catch(err) {
         throw err
     }    
+}
+
+export const getNumOfComments = async (issueURL: string) => {
+    try {
+        const response = await axios.get(issueURL)
+        return response.data
+    } catch(err) {
+        throw err
+    }
 }
 
 export const addComment = async (commentStruct: Comment) => {
