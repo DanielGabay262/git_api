@@ -24,5 +24,6 @@ export interface PullRequest {
     title: string,
     html_url: string,
     number: number,
+    issue_url: string,
     comments: number
 }

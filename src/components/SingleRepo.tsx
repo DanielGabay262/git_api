@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-import { useGetBranches, useGetPullRequests } from './ReactQueryWrapper'
+import { useGetBranches, useGetPullRequests, useGetNumOfComments } from './ReactQueryWrapper'
 import { useQueryClient } from 'react-query'
 import { Repo, Branch, PullRequest } from './Interfaces'
 import singleRepoCSS from './SingleRepo.module.scss'
@@ -41,10 +41,30 @@ const SingleRepo = ({ userName, repoName }: props) => {
             <p>Language: <span className={singleRepoCSS.dynamicData}>{repoData?.language !== null ? repoData?.language : "No language specified"}</span></p>
             <p>Branches:</p>
             <BranchesList branches={branchesData} />
-            <p>Pull requests: <PrList pullRequests={prData} handleAddComment={handleAddComment} /></p>
+            <p>Pull requests:</p>
+            <PrList pullRequests={prData} handleAddComment={handleAddComment} />
             {isAddCommentClicked && <Popup userName={userName} repoName={repoName} issueNumber={issueNumber} setIsAddCommentClicked={setIsAddCommentClicked}></Popup>}
         </div>
     )
+}
+
+const PrNumOfComments = ({issueURL}: {issueURL: string}) => {
+
+    const parts = issueURL.split("/")
+    const issueNumber = parts[7]
+    const repoName = parts[5]
+
+    const { data, isSuccess, isLoading } = useGetNumOfComments(issueURL, repoName, issueNumber)
+
+    if (isLoading) {
+        return <span>Loading the number of comments</span>
+    }
+
+    if (!isSuccess) {
+        return <span>Error in loading the number of comments</span>
+    }
+
+    return <span>{`${data.comments} comments`}</span>
 }
 
 const PrList = ({ pullRequests, handleAddComment }: { pullRequests: PullRequest[], handleAddComment: (issue: string) => void }) => {
@@ -55,10 +75,12 @@ const PrList = ({ pullRequests, handleAddComment }: { pullRequests: PullRequest[
         <li key={pullRequest.number}>
             <a className={singleRepoCSS.prLink} href={`${pullRequest.html_url}`}>{pullRequest.title}</a> 
             <button className={singleRepoCSS.addCommentBtn} onClick={() => handleAddComment(pullRequest.number.toString())}>Add comment</button>
-            <span className={singleRepoCSS.numOfComments}>{` (${pullRequest.comments} comments)`}</span>
+            <span className={singleRepoCSS.numOfComments}>(<PrNumOfComments issueURL={pullRequest.issue_url}/>)</span>
         </li>)
+
     return <ul className={singleRepoCSS.dynamicData}>{pullRequestList}</ul>
 }
+
 
 const BranchesList = ({ branches }: { branches: Branch[] }) => {
     const branchesList = branches.map((branch) =>
